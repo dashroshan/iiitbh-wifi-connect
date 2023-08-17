@@ -1,0 +1,28 @@
+{
+    "name": "IIIT-Bh WiFi Connect",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "Open and automatically login into the IIIT-Bh WiFi captive portal",
+    "homepage_url": "https://dashroshan.com",
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": true
+    },
+    "browser_action": {
+        "default_title": "IIIT-Bh WiFi Connect",
+        "default_icon": "icon128.png"
+    },
+    "icons": {
+        "128": "icon128.png"
+    },
+    "permissions": [
+        "https://*/*",
+        "http://*/*",
+        "tabs",
+        "activeTab",
+        "contextMenus",
+        "storage"
+    ]
+}
