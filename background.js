@@ -14,17 +14,9 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     }
 })
 
-const configureCredentials = function () {
-    let username = window.prompt("Enter username");
-    let password = window.prompt("Enter password");
-    chrome.storage.sync.set({ "iiit_wifi_username": username, "iiit_wifi_password": password }, function () {
-        alert("Credentials save successfully!");
-    });
-}
-
 chrome.contextMenus.create({
     title: "Configure WiFi portal credentials",
     contexts: ["browser_action"],
-    onclick: configureCredentials
+    onclick: () => chrome.tabs.create({ url: "/credentials.html" })
 });
 
