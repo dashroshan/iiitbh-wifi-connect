@@ -1,7 +1,12 @@
 const RESETURL = "https://192.168.1.250/connect/Reset";
 const LOGINURL = "https://192.168.1.250/connect/PortalMain";
 
+
 chrome.browserAction.onClicked.addListener(function (tab) {
+    chrome.tabs.query({}, (tabs) => {
+        for (const tab of tabs)
+            if (tab.url.includes("192.168.1.250")) chrome.tabs.remove(tab.id);
+    });
     chrome.tabs.update(tab.id, { url: RESETURL });
 });
 
